@@ -3,3 +3,11 @@
 [![Version](https://img.shields.io/nuget/v/biz.dfch.CS.PowerShell.Commons.svg)](https://www.nuget.org/packages/biz.dfch.CS.PowerShell.Commons/)
 
 Common C#/.NET classes for PowerShell module development
+
+d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
+
+## Download
+
+* Get it on [NuGet](https://www.nuget.org/packages/biz.dfch.CS.PowerShell.Commons/)
+
+* See [Releases](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/releases) and [Tags](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/tags) on [GitHub](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons)
