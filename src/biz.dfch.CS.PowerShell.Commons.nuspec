@@ -23,17 +23,18 @@ d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
 
 * See [Releases](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/releases) and [Tags](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/tags) on [GitHub](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons)
 		</description>
-        <summary>Common C#/.NET classes for PowerShell module development</summary>
-        <releaseNotes>20161121
+    <summary>Common C#/.NET classes for PowerShell module development</summary>
+    <releaseNotes>20161121
 Initial release
-        </releaseNotes>
-        <copyright>Copyright © 2016 d-fens GmbH</copyright>
-        <tags>dfch Commons C# PowerShell</tags>
-        <dependencies>
-			<dependency id="biz.dfch.CS.System.Utilities" version="2.0.1" />
+    </releaseNotes>
+    <copyright>Copyright © 2016 d-fens GmbH</copyright>
+    <tags>dfch Commons C# PowerShell</tags>
+    <dependencies>
+			<dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.0.0" />
 		</dependencies>
     </metadata>
 	<files>
-		<file src="biz.dfch.CS.PowerShell.Commons\bin\Release\biz.dfch.CS.PowerShell.Commons.dll" target="lib\" />
+    <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\biz.dfch.CS.PowerShell.Commons.dll" target="lib\" />
+    <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\CodeContracts\biz.dfch.CS.PowerShell.Commons.Contracts.dll" target="lib\CodeContracts" />
 	</files>
 </package>
