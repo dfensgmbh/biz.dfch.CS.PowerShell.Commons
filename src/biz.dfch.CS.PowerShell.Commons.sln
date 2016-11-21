@@ -6,12 +6,12 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Release", "Release", "{D7C825EA-614F-435D-8827-5988CB579ACC}"
 	ProjectSection(SolutionItems) = preProject
 		AssemblyVersion.cs = AssemblyVersion.cs
-		src\biz.dfch.CS.PowerShell.Commons.nuspec = src\biz.dfch.CS.PowerShell.Commons.nuspec
+		biz.dfch.CS.PowerShell.Commons.nuspec = biz.dfch.CS.PowerShell.Commons.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "biz.dfch.CS.PowerShell.Commons", "src\biz.dfch.CS.PowerShell.Commons\biz.dfch.CS.PowerShell.Commons.csproj", "{CCE746B8-A846-45F3-BD7E-84F77A04D6AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "biz.dfch.CS.PowerShell.Commons", "biz.dfch.CS.PowerShell.Commons\biz.dfch.CS.PowerShell.Commons.csproj", "{CCE746B8-A846-45F3-BD7E-84F77A04D6AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "biz.dfch.CS.PowerShell.Commons.Tests", "src\biz.dfch.CS.PowerShell.Commons.Tests\biz.dfch.CS.PowerShell.Commons.Tests.csproj", "{30B07DE2-55C9-4CBB-AE2E-C31E94C6D104}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "biz.dfch.CS.PowerShell.Commons.Tests", "biz.dfch.CS.PowerShell.Commons.Tests\biz.dfch.CS.PowerShell.Commons.Tests.csproj", "{30B07DE2-55C9-4CBB-AE2E-C31E94C6D104}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
