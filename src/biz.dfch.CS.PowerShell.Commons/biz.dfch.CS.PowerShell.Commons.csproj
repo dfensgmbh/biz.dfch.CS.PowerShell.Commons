@@ -121,7 +121,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>dfch.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>dfch.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -144,7 +144,7 @@
     <Compile Include="PsCmdletBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dfch.snk" />
+    <None Include="dfch.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
