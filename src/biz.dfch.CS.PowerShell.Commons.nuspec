@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>biz.dfch.CS.PowerShell.Commons</id>
-        <version>1.0.1</version>
+        <version>1.1.0</version>
         <title>biz.dfch.CS.PowerShell.Commons</title>
         <authors>d-fens GmbH</authors>
         <owners>d-fens GmbH</owners>
@@ -24,12 +24,13 @@ d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
 * See [Releases](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/releases) and [Tags](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/tags) on [GitHub](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons)
 		</description>
     <summary>Common C#/.NET classes for PowerShell module development</summary>
-    <releaseNotes>20161122
+    <releaseNotes>20161125
 # FEATURES
 
 PscmdletBase
 
-* added base class with method to automatically set default values on non-speficied input parameters
+* added logging to base class
+* added biz.dfch.CS.Common module to support logging to TraceListener via Trace Source
 
 PublicKey
 
@@ -38,11 +39,14 @@ PublicKey
     <copyright>Copyright © 2016 d-fens GmbH</copyright>
     <tags>dfch Commons C# PowerShell</tags>
     <dependencies>
-			<dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.0.0" />
+      <dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.0.0" />
+      <dependency id="biz.dfch.CS.Commons" version="1.0.0" />
 		</dependencies>
     </metadata>
 	<files>
     <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\biz.dfch.CS.PowerShell.Commons.dll" target="lib\" />
     <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\CodeContracts\biz.dfch.CS.PowerShell.Commons.Contracts.dll" target="lib\CodeContracts" />
-	</files>
+    <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\powershell.exe.config" target="lib\" />
+    <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\log4net.config" target="lib\" />
+  </files>
 </package>

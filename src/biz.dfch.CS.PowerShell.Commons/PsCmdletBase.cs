@@ -15,9 +15,12 @@
  */
 
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Management.Automation;
 using System.Reflection;
+using biz.dfch.CS.Commons.Diagnostics;
+using TraceSource = biz.dfch.CS.Commons.Diagnostics.TraceSource;
 
 namespace biz.dfch.CS.PowerShell.Commons
 {
@@ -27,14 +30,26 @@ namespace biz.dfch.CS.PowerShell.Commons
     /// </summary>
     public class PsCmdletBase : PSCmdlet
     {
+        private TraceSource logger;
+
+        public const int EVENT_ID_START = 1;
+        public const int EVENT_ID_STOP  = 2;
+
         /// <summary>
         /// Preamble of Cmdlet used for initialising parameters to its default values
         /// </summary>
         protected override void BeginProcessing()
         {
-            base.BeginProcessing();
+            var moduleName = this.MyInvocation.MyCommand.ModuleName;
+            if(string.IsNullOrWhiteSpace(moduleName)) { moduleName = this.GetType().Namespace; }
+
+            logger = Logger.Get(moduleName);
+
+            logger.TraceEvent(TraceEventType.Start, EVENT_ID_START);
 
             SetDefaultValues();
+
+            base.BeginProcessing();
         }
 
         /// <summary>
@@ -60,18 +75,17 @@ namespace biz.dfch.CS.PowerShell.Commons
                     continue;
                 }
 
-                object value;
-                if(propertyInfo.PropertyType == typeof(SwitchParameter))
-                {
-                    value = new SwitchParameter(isPresent: (bool) psDefaultValueAttribute.Value);
-                }
-                else
-                {
-                    value = psDefaultValueAttribute.Value;
-                }
+                var value = propertyInfo.PropertyType == typeof(SwitchParameter) ? 
+                    new SwitchParameter(isPresent: (bool) psDefaultValueAttribute.Value) : psDefaultValueAttribute.Value;
                 propertyInfo.SetValue(this, value, null);
             }
         }
 
+        protected override void EndProcessing()
+        {
+            logger.TraceEvent(TraceEventType.Stop, EVENT_ID_STOP);
+
+            base.EndProcessing();
+        }
     }
 }
