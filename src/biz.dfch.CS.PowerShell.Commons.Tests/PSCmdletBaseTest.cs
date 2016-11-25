@@ -19,6 +19,7 @@ using System.Diagnostics.Contracts;
 using System.Management.Automation;
 using biz.dfch.CS.Testing.PowerShell;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Telerik.JustMock;
 
 namespace biz.dfch.CS.PowerShell.Commons.Tests
 {
