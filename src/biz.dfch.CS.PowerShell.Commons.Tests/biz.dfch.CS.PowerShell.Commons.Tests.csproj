@@ -132,6 +132,10 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="biz.dfch.CS.Commons, Version=1.0.0.30579, Culture=neutral, PublicKeyToken=ddc350d26de1d0d9, processorArchitecture=MSIL">
+      <HintPath>..\packages\biz.dfch.CS.Commons.1.0.0\lib\biz.dfch.CS.Commons.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="biz.dfch.CS.Testing, Version=1.3.0.27560, Culture=neutral, PublicKeyToken=30acc2f3d5961f2d, processorArchitecture=MSIL">
       <HintPath>..\packages\biz.dfch.CS.Testing.1.3.0\lib\biz.dfch.CS.Testing.dll</HintPath>
       <Private>True</Private>
