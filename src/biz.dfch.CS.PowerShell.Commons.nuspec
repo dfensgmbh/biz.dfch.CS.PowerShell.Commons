@@ -46,5 +46,7 @@ PublicKey
 	<files>
     <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\biz.dfch.CS.PowerShell.Commons.dll" target="lib\" />
     <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\CodeContracts\biz.dfch.CS.PowerShell.Commons.Contracts.dll" target="lib\CodeContracts" />
-	</files>
+    <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\powershell.exe.config" target="lib\" />
+    <file src="biz.dfch.CS.PowerShell.Commons\bin\Release\log4net.config" target="lib\" />
+  </files>
 </package>
