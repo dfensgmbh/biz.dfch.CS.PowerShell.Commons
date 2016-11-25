@@ -27,7 +27,7 @@ d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
     <releaseNotes>20161125
 # FEATURES
 
-PscmdletBase
+PsCmdletBase
 
 * added logging to base class
 * added biz.dfch.CS.Common module to support logging to TraceListener via Trace Source
