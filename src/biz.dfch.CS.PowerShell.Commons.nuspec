@@ -24,23 +24,23 @@ d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
 * See [Releases](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/releases) and [Tags](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/tags) on [GitHub](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons)
 		</description>
     <summary>Common C#/.NET classes for PowerShell module development</summary>
-    <releaseNotes>20161125
+    <releaseNotes>20161127
+    
 # FEATURES
 
-PsCmdletBase
+PsCredentialTypeConverter
 
-* added logging to base class
-* added biz.dfch.CS.Common module to support logging to TraceListener via Trace Source
+* added converter for converting username and password to PSCredential
 
-PublicKey
+biz.dfch.CS.Commons
 
-* changed Public Key to ddc350d26de1d0d9
+* updated to 1.2.0
     </releaseNotes>
     <copyright>Copyright © 2016 d-fens GmbH</copyright>
     <tags>dfch Commons C# PowerShell</tags>
     <dependencies>
       <dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.0.0" />
-      <dependency id="biz.dfch.CS.Commons" version="1.0.0" />
+      <dependency id="biz.dfch.CS.Commons" version="1.2.0" />
 		</dependencies>
     </metadata>
 	<files>
