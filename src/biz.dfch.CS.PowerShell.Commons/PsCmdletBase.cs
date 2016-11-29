@@ -32,8 +32,8 @@ namespace biz.dfch.CS.PowerShell.Commons
     {
         private TraceSource logger;
 
-        public const int EVENT_ID_START = 1;
-        public const int EVENT_ID_STOP  = 2;
+        public const int EVENT_ID_START = short.MaxValue - 1;
+        public const int EVENT_ID_STOP  = short.MaxValue - 2;
 
         /// <summary>
         /// Preamble of Cmdlet used for initialising parameters to its default values
@@ -45,7 +45,7 @@ namespace biz.dfch.CS.PowerShell.Commons
 
             logger = Logger.Get(moduleName);
 
-            logger.TraceEvent(TraceEventType.Start, EVENT_ID_START);
+            logger.TraceEvent(TraceEventType.Start, EVENT_ID_START, MyInvocation.InvocationName);
 
             SetDefaultValues();
 
@@ -83,7 +83,7 @@ namespace biz.dfch.CS.PowerShell.Commons
 
         protected override void EndProcessing()
         {
-            logger.TraceEvent(TraceEventType.Stop, EVENT_ID_STOP);
+            logger.TraceEvent(TraceEventType.Stop, EVENT_ID_STOP, MyInvocation.InvocationName);
 
             base.EndProcessing();
         }
