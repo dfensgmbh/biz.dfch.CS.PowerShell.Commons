@@ -31,7 +31,16 @@ namespace biz.dfch.CS.PowerShell.Commons
             Contract.Requires(null != exception);
             Contract.Ensures(null != Contract.Result<ErrorRecord>());
             
-            return GetGeneric(exception.Message, ErrorCategory.NotSpecified.ToString(), ErrorCategory.NotSpecified, null);
+            return GetGeneric(exception, exception.Message, null);
+        }
+
+        public static ErrorRecord GetGeneric(Exception exception, string messageOrTemplate)
+        {
+            Contract.Requires(null != exception);
+            Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
+            Contract.Ensures(null != Contract.Result<ErrorRecord>());
+
+            return GetGeneric(exception, messageOrTemplate: exception.Message, objects: null);
         }
 
         public static ErrorRecord GetGeneric(Exception exception, string messageOrTemplate, params object[] objects)
@@ -55,6 +64,13 @@ namespace biz.dfch.CS.PowerShell.Commons
             return errorRecord;
         }
 
+        public static ErrorRecord GetGeneric(string messageOrTemplate)
+        {
+            Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
+            Contract.Ensures(null != Contract.Result<ErrorRecord>());
+
+            return GetGeneric(messageOrTemplate, errorId: ErrorCategory.NotSpecified.ToString(), errorCategory: ErrorCategory.NotSpecified, objects: null);
+        }
 
         public static ErrorRecord GetGeneric(string messageOrTemplate, params object[] objects)
         {
