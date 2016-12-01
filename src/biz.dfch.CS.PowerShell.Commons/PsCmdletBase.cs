@@ -16,6 +16,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Management.Automation;
 using System.Reflection;
@@ -30,7 +31,7 @@ namespace biz.dfch.CS.PowerShell.Commons
     /// </summary>
     public class PsCmdletBase : PSCmdlet
     {
-        private TraceSource logger;
+        protected TraceSource TraceSource;
 
         public const int EVENT_ID_START = ushort.MaxValue - 1;
         public const int EVENT_ID_STOP  = ushort.MaxValue - 2;
@@ -43,9 +44,9 @@ namespace biz.dfch.CS.PowerShell.Commons
             var moduleName = this.MyInvocation.MyCommand.ModuleName;
             if(string.IsNullOrWhiteSpace(moduleName)) { moduleName = this.GetType().Namespace; }
 
-            logger = Logger.Get(moduleName);
+            TraceSource = Logger.Get(moduleName);
 
-            logger.TraceEvent(TraceEventType.Start, EVENT_ID_START, MyInvocation.InvocationName);
+            TraceSource.TraceEvent(TraceEventType.Start, EVENT_ID_START, MyInvocation.InvocationName);
 
             SetDefaultValues();
 
@@ -83,9 +84,22 @@ namespace biz.dfch.CS.PowerShell.Commons
 
         protected override void EndProcessing()
         {
-            logger.TraceEvent(TraceEventType.Stop, EVENT_ID_STOP, MyInvocation.InvocationName);
+            TraceSource.TraceEvent(TraceEventType.Stop, EVENT_ID_STOP, MyInvocation.InvocationName);
 
             base.EndProcessing();
+        }
+
+        public void WriteError(ErrorRecord errorRecord, bool writeToTraceSource)
+        {
+            Contract.Requires(null != errorRecord);
+            Contract.Requires(null != errorRecord.Exception);
+
+            if (writeToTraceSource && null != TraceSource)
+            {
+                TraceSource.TraceException(errorRecord.Exception);
+            }
+
+            base.WriteError(errorRecord);
         }
     }
 }
