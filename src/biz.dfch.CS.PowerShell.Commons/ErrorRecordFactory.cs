@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using System;
 using System.Diagnostics.Contracts;
 using System.Management.Automation;
 using System.Text;
@@ -25,13 +26,94 @@ namespace biz.dfch.CS.PowerShell.Commons
     /// </summary>
     public static class ErrorRecordFactory
     {
-        /// <summary>
-        /// GetNotFound
-        /// </summary>
-        /// <param name="messageOrTemplate">A string message or a format string</param>
-        /// <param name="errorId">EventId</param>
-        /// <param name="objects">zero or more objects, where first object (if available) will be used as targetObject in ErrorRecord</param>
-        /// <returns>ErrorRecord</returns>
+        public static ErrorRecord GetGeneric(Exception exception)
+        {
+            Contract.Requires(null != exception);
+            Contract.Ensures(null != Contract.Result<ErrorRecord>());
+            
+            return GetGeneric(exception, exception.Message, null);
+        }
+
+        public static ErrorRecord GetGeneric(Exception exception, string messageOrTemplate)
+        {
+            Contract.Requires(null != exception);
+            Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
+            Contract.Ensures(null != Contract.Result<ErrorRecord>());
+
+            return GetGeneric(exception, messageOrTemplate: exception.Message, objects: null);
+        }
+
+        public static ErrorRecord GetGeneric(Exception exception, string messageOrTemplate, params object[] objects)
+        {
+            Contract.Requires(null != exception);
+            Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
+            Contract.Ensures(null != Contract.Result<ErrorRecord>());
+            
+            var message = new StringBuilder();
+
+            if (null != objects)
+            {
+                message.AppendFormat(messageOrTemplate, objects);
+            }
+            else
+            {
+                message.Append(message);
+            }
+
+            var errorRecord = new ErrorRecord(exception, ErrorCategory.NotSpecified.ToString(), ErrorCategory.NotSpecified, null != objects ? objects[0] : null);
+            return errorRecord;
+        }
+
+        public static ErrorRecord GetGeneric(string messageOrTemplate)
+        {
+            Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
+            Contract.Ensures(null != Contract.Result<ErrorRecord>());
+
+            return GetGeneric(messageOrTemplate, errorId: ErrorCategory.NotSpecified.ToString(), errorCategory: ErrorCategory.NotSpecified, objects: null);
+        }
+
+        public static ErrorRecord GetGeneric(string messageOrTemplate, params object[] objects)
+        {
+            Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
+            Contract.Ensures(null != Contract.Result<ErrorRecord>());
+
+            return GetGeneric(messageOrTemplate, errorId: ErrorCategory.NotSpecified.ToString(), errorCategory: ErrorCategory.NotSpecified, objects: objects);
+        }
+
+        public static ErrorRecord GetGeneric(string messageOrTemplate, string errorId, params object[] objects)
+        {
+            Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
+            Contract.Requires(!string.IsNullOrWhiteSpace(errorId));
+            Contract.Ensures(null != Contract.Result<ErrorRecord>());
+
+            return GetGeneric(messageOrTemplate, errorId: errorId, errorCategory: ErrorCategory.NotSpecified, objects: objects);
+        }
+
+        public static ErrorRecord GetGeneric(string messageOrTemplate, string errorId, ErrorCategory errorCategory, params object[] objects)
+        {
+            Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
+            Contract.Requires(!string.IsNullOrWhiteSpace(errorId));
+            Contract.Requires(null != errorCategory);
+            Contract.Ensures(null != Contract.Result<ErrorRecord>());
+            // must be Assert as we do not have constant values
+            Contract.Assert(Enum.IsDefined(typeof(ErrorCategory), errorCategory), errorCategory.ToString());
+
+            var message = new StringBuilder();
+
+            if (null != objects)
+            {
+                message.AppendFormat(messageOrTemplate, objects);
+            }
+            else
+            {
+                message.Append(message);
+            }
+
+            var exception = new Exception(message.ToString());
+            var errorRecord = new ErrorRecord(exception, errorId, errorCategory, null != objects ? objects[0] : null);
+            return errorRecord;
+        }
+
         public static ErrorRecord GetNotFound(string messageOrTemplate, string errorId, params object[] objects)
         {
             Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
@@ -50,7 +132,7 @@ namespace biz.dfch.CS.PowerShell.Commons
             }
 
             var exception = new ItemNotFoundException(message.ToString());
-            var errorRecord = new ErrorRecord(exception, errorId.ToString(), ErrorCategory.ObjectNotFound, null != objects ? objects[0] : null);
+            var errorRecord = new ErrorRecord(exception, errorId, ErrorCategory.ObjectNotFound, null != objects ? objects[0] : null);
             return errorRecord;
         }
     }

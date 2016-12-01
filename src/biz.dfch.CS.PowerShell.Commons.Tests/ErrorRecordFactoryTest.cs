@@ -15,6 +15,7 @@
  */
 
 using System;
+using System.Management.Automation;
 using biz.dfch.CS.Testing.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -126,5 +127,26 @@ namespace biz.dfch.CS.PowerShell.Commons.Tests
             Assert.IsTrue(result.Exception.Message.StartsWith(messageOrTemplateStart));
         }
 
+        [TestMethod]
+        [ExpectContractFailure(MessagePattern = "exception")]
+        public void GetGenericThrowsContractException()
+        {
+            var exception = default(Exception);
+
+            ErrorRecordFactory.GetGeneric(exception);
+        }
+
+        [TestMethod]
+        public void GetGenericSucceeds()
+        {
+            var exception = new ArgumentException("arbitrary-message");
+
+            var result = ErrorRecordFactory.GetGeneric(exception);
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.FullyQualifiedErrorId.StartsWith(ErrorCategory.NotSpecified.ToString()));
+            Assert.IsInstanceOfType(result.Exception, typeof(ArgumentException));
+            Assert.AreEqual(exception.Message, result.Exception.Message);
+        }
     }
 }
