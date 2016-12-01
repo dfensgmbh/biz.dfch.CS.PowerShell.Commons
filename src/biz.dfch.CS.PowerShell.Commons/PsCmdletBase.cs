@@ -32,8 +32,8 @@ namespace biz.dfch.CS.PowerShell.Commons
     {
         private TraceSource logger;
 
-        public const int EVENT_ID_START = short.MaxValue - 1;
-        public const int EVENT_ID_STOP  = short.MaxValue - 2;
+        public const int EVENT_ID_START = ushort.MaxValue - 1;
+        public const int EVENT_ID_STOP  = ushort.MaxValue - 2;
 
         /// <summary>
         /// Preamble of Cmdlet used for initialising parameters to its default values
