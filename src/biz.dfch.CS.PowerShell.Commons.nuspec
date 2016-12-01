@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>biz.dfch.CS.PowerShell.Commons</id>
-        <version>1.4.0</version>
+        <version>1.5.0</version>
         <title>biz.dfch.CS.PowerShell.Commons</title>
         <authors>d-fens GmbH</authors>
         <owners>d-fens GmbH</owners>
@@ -25,21 +25,15 @@ d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
 		</description>
     <summary>Common C#/.NET classes for PowerShell module development</summary>
     <releaseNotes>20161201
-# BUGFIXES
-
-EventIds
-
-* fixed event ids (ushort instead of short)
-
 # FEATURES
 
-biz.dfch.CS.Testing
+PsCmdletBase
 
-* updated package to 1.4.0
+* added WriteError overload to support logging ErrorRecord to TraceSource
 
 ErrorRecordFactory
 
-* added factory for generating ErrorRecord (implemented NotFound)
+* added GetGeneric to support creating ErrorRecords from exceptions and generic messages
     </releaseNotes>
     <copyright>Copyright © 2016 d-fens GmbH</copyright>
     <tags>dfch Commons C# PowerShell</tags>
