@@ -33,7 +33,7 @@ ContractFailedEventHandler
 
 biz.dfch.CS.Commons
 
-* updated package to 1.7.1
+* updated package to version 1.7.1
     </releaseNotes>
     <copyright>Copyright © 2016 d-fens GmbH</copyright>
     <tags>dfch Commons C# PowerShell</tags>
