@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>biz.dfch.CS.PowerShell.Commons</id>
-        <version>1.5.0</version>
+        <version>1.6.0</version>
         <title>biz.dfch.CS.PowerShell.Commons</title>
         <authors>d-fens GmbH</authors>
         <owners>d-fens GmbH</owners>
@@ -24,22 +24,22 @@ d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
 * See [Releases](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/releases) and [Tags](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons/tags) on [GitHub](https://github.com/dfensgmbh/biz.dfch.CS.PowerShell.Commons)
 		</description>
     <summary>Common C#/.NET classes for PowerShell module development</summary>
-    <releaseNotes>20161201
+    <releaseNotes>20161204
 # FEATURES
 
-PsCmdletBase
+ContractFailedEventHandler
 
-* added WriteError overload to support logging ErrorRecord to TraceSource
+* added generic event handler to log ContractExceptions per assembly and trace source
 
-ErrorRecordFactory
+biz.dfch.CS.Commons
 
-* added GetGeneric to support creating ErrorRecords from exceptions and generic messages
+* updated package to 1.7.1
     </releaseNotes>
     <copyright>Copyright © 2016 d-fens GmbH</copyright>
     <tags>dfch Commons C# PowerShell</tags>
     <dependencies>
       <dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.0.0" />
-      <dependency id="biz.dfch.CS.Commons" version="1.6.0" />
+      <dependency id="biz.dfch.CS.Commons" version="1.7.1" />
 		</dependencies>
     </metadata>
 	<files>
