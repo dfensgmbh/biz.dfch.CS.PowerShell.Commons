@@ -124,12 +124,12 @@
     <AssemblyOriginatorKeyFile>dfch.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="biz.dfch.CS.Commons, Version=1.6.0.28696, Culture=neutral, PublicKeyToken=ddc350d26de1d0d9, processorArchitecture=MSIL">
-      <HintPath>..\packages\biz.dfch.CS.Commons.1.6.0\lib\biz.dfch.CS.Commons.dll</HintPath>
+    <Reference Include="biz.dfch.CS.Commons, Version=1.7.1.35812, Culture=neutral, PublicKeyToken=ddc350d26de1d0d9, processorArchitecture=MSIL">
+      <HintPath>..\packages\biz.dfch.CS.Commons.1.7.1\lib\biz.dfch.CS.Commons.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\biz.dfch.CS.Commons.1.6.0\lib\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\biz.dfch.CS.Commons.1.7.1\lib\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
