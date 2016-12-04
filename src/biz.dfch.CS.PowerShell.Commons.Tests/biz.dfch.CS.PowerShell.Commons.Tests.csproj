@@ -169,6 +169,7 @@
     <Compile Include="..\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="ContractFailedEventHandlerTest.cs" />
     <Compile Include="Converters\PsCredentialTypeConverterTest.cs" />
     <Compile Include="ErrorRecordFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
