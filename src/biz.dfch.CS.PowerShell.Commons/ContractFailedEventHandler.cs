@@ -27,7 +27,7 @@ namespace biz.dfch.CS.PowerShell.Commons
     /// <summary>
     /// ContractEventHandler
     /// </summary>
-    public class ContractFailedEventHandler
+    public static class ContractFailedEventHandler
     {
         private const int CALLING_FRAME = 1;
         
@@ -193,6 +193,19 @@ namespace biz.dfch.CS.PowerShell.Commons
             }
             
             traceSource.TraceEvent(TraceEventType.Error, EVENT_ID, METHOD_MESSAGE_AND_STACKTRACE_FORMAT, methodName, args.Message, message);
+        }
+
+        public static void RegisterContractFailedEventHandler(this TraceSource traceSource)
+        {
+            Contract.Requires(null != traceSource);
+
+            var stackFrame = new StackFrame(CALLING_FRAME);
+
+            var declaringType = stackFrame.GetMethod().DeclaringType;
+            var message = string.Format(CALLINGFRAME_GETMETHOD_NAME_TRACESOURCE, stackFrame.GetMethod().Name, traceSource.Name);
+            Contract.Assert(null != declaringType, message);
+
+            RegisterTraceSource(declaringType.Assembly, traceSource);
         }
     }
 }
