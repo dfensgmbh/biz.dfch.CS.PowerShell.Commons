@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>biz.dfch.CS.PowerShell.Commons</id>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <title>biz.dfch.CS.PowerShell.Commons</title>
         <authors>d-fens GmbH</authors>
         <owners>d-fens GmbH</owners>
@@ -29,17 +29,25 @@ d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
 
 ContractFailedEventHandler
 
-* added generic event handler to log ContractExceptions per assembly and trace source
+* added RegisterTraceSource extension method
+
+ExceptionExtensions
+
+* added extension methods for creating ErrorRecords from Exceptions
 
 biz.dfch.CS.Commons
 
-* updated package to version 1.7.1
+* updated to 1.8.2
+
+# BUGFIXES
+
+N/A
     </releaseNotes>
     <copyright>Copyright © 2016 d-fens GmbH</copyright>
     <tags>dfch Commons C# PowerShell</tags>
     <dependencies>
       <dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.0.0" />
-      <dependency id="biz.dfch.CS.Commons" version="1.7.1" />
+      <dependency id="biz.dfch.CS.Commons" version="1.8.2" />
 		</dependencies>
     </metadata>
 	<files>
