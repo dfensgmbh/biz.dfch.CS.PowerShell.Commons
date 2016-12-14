@@ -172,6 +172,7 @@
     <Compile Include="ContractFailedEventHandlerTest.cs" />
     <Compile Include="Converters\PsCredentialTypeConverterTest.cs" />
     <Compile Include="ErrorRecordFactoryTest.cs" />
+    <Compile Include="ExceptionExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSCmdletBaseTest.cs" />
   </ItemGroup>

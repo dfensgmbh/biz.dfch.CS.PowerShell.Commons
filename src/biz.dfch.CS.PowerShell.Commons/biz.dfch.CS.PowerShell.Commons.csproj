@@ -144,6 +144,7 @@
     <Compile Include="..\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="ExceptionExtensions.cs" />
     <Compile Include="ContractFailedEventHandler.cs" />
     <Compile Include="ErrorRecordFactory.cs" />
     <Compile Include="Converters\PsCredentialTypeConverter.cs" />
