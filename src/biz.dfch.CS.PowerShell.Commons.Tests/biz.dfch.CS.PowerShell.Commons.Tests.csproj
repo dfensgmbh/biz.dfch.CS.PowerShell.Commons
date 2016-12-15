@@ -140,10 +140,6 @@
       <HintPath>..\packages\biz.dfch.CS.Testing.1.4.0\lib\biz.dfch.CS.Testing.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\biz.dfch.CS.Commons.1.8.2\lib\log4net\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\biz.dfch.CS.Commons.1.8.2\lib\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
