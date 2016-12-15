@@ -93,10 +93,8 @@ namespace biz.dfch.CS.PowerShell.Commons
         {
             Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
             Contract.Requires(!string.IsNullOrWhiteSpace(errorId));
-            Contract.Requires(null != errorCategory);
+            Contract.Requires(Enum.IsDefined(typeof(ErrorCategory), errorCategory));
             Contract.Ensures(null != Contract.Result<ErrorRecord>());
-            // must be Assert as we do not have constant values
-            Contract.Assert(Enum.IsDefined(typeof(ErrorCategory), errorCategory), errorCategory.ToString());
 
             var message = new StringBuilder();
 
