@@ -108,7 +108,7 @@ namespace biz.dfch.CS.PowerShell.Commons
             }
 
             var exception = new Exception(message.ToString());
-            var errorRecord = new ErrorRecord(exception, errorId, errorCategory, null != objects ? objects[0] : null);
+            var errorRecord = new ErrorRecord(exception, errorId, errorCategory, objects?[0]);
             return errorRecord;
         }
 
@@ -130,7 +130,7 @@ namespace biz.dfch.CS.PowerShell.Commons
             }
 
             var exception = new ItemNotFoundException(message.ToString());
-            var errorRecord = new ErrorRecord(exception, errorId, ErrorCategory.ObjectNotFound, null != objects ? objects[0] : null);
+            var errorRecord = new ErrorRecord(exception, errorId, ErrorCategory.ObjectNotFound, objects?[0]);
             return errorRecord;
         }
     }
