@@ -31,6 +31,10 @@ ContractFailedEventHandler
 
 * added RegisterTraceSource extension method
 
+.NET Framework 4.6.2
+
+* updated to 4.6.2 from 4.6
+
 biz.dfch.CS.Commons
 
 * updated to 1.12.0
