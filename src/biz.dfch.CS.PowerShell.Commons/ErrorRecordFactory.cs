@@ -93,10 +93,8 @@ namespace biz.dfch.CS.PowerShell.Commons
         {
             Contract.Requires(!string.IsNullOrWhiteSpace(messageOrTemplate));
             Contract.Requires(!string.IsNullOrWhiteSpace(errorId));
-            Contract.Requires(null != errorCategory);
+            Contract.Requires(Enum.IsDefined(typeof(ErrorCategory), errorCategory));
             Contract.Ensures(null != Contract.Result<ErrorRecord>());
-            // must be Assert as we do not have constant values
-            Contract.Assert(Enum.IsDefined(typeof(ErrorCategory), errorCategory), errorCategory.ToString());
 
             var message = new StringBuilder();
 
@@ -110,7 +108,7 @@ namespace biz.dfch.CS.PowerShell.Commons
             }
 
             var exception = new Exception(message.ToString());
-            var errorRecord = new ErrorRecord(exception, errorId, errorCategory, null != objects ? objects[0] : null);
+            var errorRecord = new ErrorRecord(exception, errorId, errorCategory, objects?[0]);
             return errorRecord;
         }
 
@@ -132,7 +130,7 @@ namespace biz.dfch.CS.PowerShell.Commons
             }
 
             var exception = new ItemNotFoundException(message.ToString());
-            var errorRecord = new ErrorRecord(exception, errorId, ErrorCategory.ObjectNotFound, null != objects ? objects[0] : null);
+            var errorRecord = new ErrorRecord(exception, errorId, ErrorCategory.ObjectNotFound, objects?[0]);
             return errorRecord;
         }
     }

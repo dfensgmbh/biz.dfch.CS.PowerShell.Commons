@@ -45,7 +45,7 @@ namespace biz.dfch.CS.PowerShell.Commons.Tests
                 {
                     InnerMostMethod(boolThatIsPassedThrough);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     throw;
                 }
@@ -58,7 +58,7 @@ namespace biz.dfch.CS.PowerShell.Commons.Tests
                 {
                     InnerMostMethod(boolThatIsPassedThrough);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // ignore exception
                 }
@@ -70,7 +70,7 @@ namespace biz.dfch.CS.PowerShell.Commons.Tests
                 {
                     InbetweenMethodThatDoesRethrow(boolThatIsPassedThrough);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     throw;
                 }
@@ -82,7 +82,7 @@ namespace biz.dfch.CS.PowerShell.Commons.Tests
                 {
                     InbetweenMethodThatDoesNotRethrow(boolThatIsPassedThrough);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // ignore exception
                 }
